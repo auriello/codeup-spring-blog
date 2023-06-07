@@ -3,12 +3,71 @@
 <head>
     <meta charset="UTF-8">
     <title>Show</title>
+    <style>
+        /* Body styles */
+        body {
+            background-color: #1f1f1f;
+            color: #fff;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Navigation styles */
+        nav {
+            background-color: #333;
+            padding: 10px;
+        }
+
+        nav a {
+            color: #fff;
+            text-decoration: none;
+            margin-right: 10px;
+        }
+
+        /* Header styles */
+        h1 {
+            color: #fff;
+            font-size: 24px;
+            margin: 20px 0;
+            text-align: center;
+        }
+
+        /* Post styles */
+        .post {
+            background-color: #333;
+            padding: 20px;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .post h2 {
+            color: #fff;
+            font-size: 20px;
+            margin-bottom: 10px;
+            text-align: center;
+        }
+
+        .post p {
+            color: #ccc;
+        }
+
+        /* Footer styles */
+        footer {
+            background-color: #333;
+            padding: 10px;
+            text-align: center;
+            color: #fff;
+            font-size: 14px;
+        }
+    </style>
 </head>
 <body>
 
 <nav th:replace="partials/navbar :: navbar"></nav>
 
 <h1 th:replace="partials/header :: header"></h1>
+<th:block th:text ="${post.user.email}"></th:block>
 <th:block th:text="${post.title}"></th:block>
 <th:block th:text="${post.body}"></th:block>
 <!--<th:block th:each="posts: ${posts}">-->
