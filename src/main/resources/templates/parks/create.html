@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>Create a New Park</title>
+</head>
+<body>
+<form action="/parks/create" method="post">
+  <label for="name">Name: </label>
+  <input type="text" name="name" id="name">
+  <select name="stateId">
+    <option th:each="state : ${states}" th:value="${state.id}" th:text="${state.name}"></option>
+  </select>
+  <button>Create Park</button>
+</form>
+</body>
+</html>

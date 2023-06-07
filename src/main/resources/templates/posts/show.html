@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Show</title>
+</head>
+<body>
+
+<nav th:replace="partials/navbar :: navbar"></nav>
+
+<h1 th:replace="partials/header :: header"></h1>
+<th:block th:text="${post.title}"></th:block>
+<th:block th:text="${post.body}"></th:block>
+<!--<th:block th:each="posts: ${posts}">-->
+<!--    <li th:text="${posts.title}"></li>-->
+<!--    <li th:text="${posts.body}"></li>-->
+<!--</th:block>-->
+
+<footer th:replace="partials/footer :: footer"></footer>
+</body>
+</html>

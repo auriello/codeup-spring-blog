@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<p>User Selection <span th:text="${guess}"></span></p>
+<p>Random Number <span th:text="${randomNum}"></span> </p>
+
+<p th:if="${guess == randomNum}">You win</p>
+<p th:if="${guess != randomNum}">You lose</p>
+</body>
+</html>
