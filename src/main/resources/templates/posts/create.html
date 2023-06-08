@@ -88,15 +88,15 @@
 <body>
 <h1>Create New Post</h1>
 <form method="post" action="/posts/create">
-  <div>
-    <label for="title">Title:</label>
-    <input type="text" id="title" name="title" required>
-  </div>
-  <div>
-    <label for="body">Body:</label>
-    <textarea id="body" name="body" required></textarea>
-  </div>
-  <button type="submit">Create Post</button>
+  <label for="title">Title: </label>
+  <input type="text" name="title" id="title">
+  <label for="body">Body: </label>
+  <textarea type="text" name="body" id="body"></textarea>
+  <th:block th:each="category : ${categories}">
+    <label th:text="${category.name}"></label>
+    <input type="checkbox" name="category" th:value="${category.id}">
+  </th:block>
+  <button>Create Post</button>
 </form>
 </body>
 </html>

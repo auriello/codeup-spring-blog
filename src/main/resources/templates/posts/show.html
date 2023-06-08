@@ -70,6 +70,10 @@
 <th:block th:text ="${post.user.email}"></th:block>
 <th:block th:text="${post.title}"></th:block>
 <th:block th:text="${post.body}"></th:block>
+<!--<th:block th:text="${post.user.email}"></th:block>-->
+<ul>
+    <li th:each="category: ${post.categories}" th:text="${category.name}"></li>
+</ul>
 <!--<th:block th:each="posts: ${posts}">-->
 <!--    <li th:text="${posts.title}"></li>-->
 <!--    <li th:text="${posts.body}"></li>-->

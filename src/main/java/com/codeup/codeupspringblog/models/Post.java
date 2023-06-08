@@ -6,6 +6,8 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.util.List;
+
 @AllArgsConstructor
 @NoArgsConstructor
 @Getter
@@ -13,14 +15,11 @@ import lombok.Setter;
 @Entity
 @Table(name = "posts")
 public class Post {
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-
     @Column(nullable = false, columnDefinition = "VARCHAR(100)")
     private String title;
-
     @Column(nullable = false, columnDefinition = "TEXT")
     private String body;
 
@@ -28,12 +27,13 @@ public class Post {
     @JoinColumn(name = "user_id")
     private User user;
 
+    @ManyToMany(cascade = CascadeType.ALL)
+    @JoinTable(name = "post_categories",
+            joinColumns = {@JoinColumn(name = "post_id")},
+            inverseJoinColumns = {@JoinColumn(name = "category_id")}
+    )
+    private List<PostCategories> categories;
 
-    public Post(long id, String title, String body) {
-        this.id = id;
-        this.title = title;
-        this.body = body;
-    }
 
     public Post(String title, String body) {
         this.title = title;
