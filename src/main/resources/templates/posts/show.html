@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <title>Show</title>
@@ -7,10 +7,11 @@
         /* Body styles */
         body {
             background-color: #1f1f1f;
-            color: #fff;
+            color: mediumaquamarine;
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
+            text-align: center;
         }
 
         /* Navigation styles */
@@ -42,7 +43,7 @@
         }
 
         .post h2 {
-            color: #fff;
+            color: mediumaquamarine;
             font-size: 20px;
             margin-bottom: 10px;
             text-align: center;
@@ -67,8 +68,10 @@
 <nav th:replace="partials/navbar :: navbar"></nav>
 
 <h1 th:replace="partials/header :: header"></h1>
-<th:block th:text ="${post.user.email}"></th:block>
+<h3 th:text ="${post.user.email}"></h3>
+<br>
 <th:block th:text="${post.title}"></th:block>
+<br>
 <th:block th:text="${post.body}"></th:block>
 <!--<th:block th:text="${post.user.email}"></th:block>-->
 <ul>

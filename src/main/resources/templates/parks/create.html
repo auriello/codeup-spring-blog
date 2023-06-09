@@ -5,10 +5,10 @@
   <title>Create a New Park</title>
 </head>
 <body>
-<form action="/parks/create" method="post">
+<form th:action="@{/parks/create}" th:method="post" th:object="${park}">
   <label for="name">Name: </label>
-  <input type="text" name="name" id="name">
-  <select name="stateId">
+  <input type="text" name="name" id="name" th:field="*{name}">
+  <select name="stateId" th:field="*{state}">
     <option th:each="state : ${states}" th:value="${state.id}" th:text="${state.name}"></option>
   </select>
   <button>Create Park</button>

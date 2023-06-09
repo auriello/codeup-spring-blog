@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <title>Index</title>
@@ -8,10 +8,11 @@
         /* Body styles */
         body {
             background-color: #1f1f1f;
-            color: #fff;
+            /*color: #fff;*/
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
+            text-align: center;
         }
 
         /* Navigation styles */
@@ -35,33 +36,38 @@
         }
 
         /* Post styles */
-        .post {
-            background-color: #333;
-            padding: 20px;
-            margin-bottom: 20px;
-            text-align: center;
-        }
 
-        .post h2 {
-            color: #fff;
+
+        #one {
+            color: coral;
             font-size: 20px;
-            margin-bottom: 10px;
-            text-align: center;
+            font-weight: bold;
         }
-
-        .post p {
-            color: #ccc;
-            text-align: center;
+        #two{
+            color: mediumaquamarine;
+            font-size: 16px;
+        }
+        .card-header {
+            color: orange;
+            font-size: 20px;
+        }
+        .card-title {
+            color: lightblue;
+            font-size: 18px;
+        }
+        .card-text {
+            color: sandybrown;
+            font-size: 18px;
         }
 
         /* Footer styles */
-        footer {
-            background-color: #333;
-            padding: 10px;
-            text-align: center;
-            color: #fff;
-            font-size: 14px;
-        }
+        /*footer {*/
+        /*    background-color: orangered;*/
+        /*    padding: 10px;*/
+        /*    text-align: center;*/
+        /*    color: #fff;*/
+        /*    font-size: 14px;*/
+        /*}*/
     </style>
 </head>
 <body>
@@ -70,8 +76,8 @@
 
 <h1 th:replace="partials/header :: header"></h1>
 <th:block th:each="post: ${posts}">
-    <li th:text="${post.title}"></li>
-    <li th:text="${post.body}"></li>
+    <li id="one" th:text="${post.title}"></li>
+    <li id="two" th:text="${post.body}"></li>
 </th:block>
 
 <footer th:replace="partials/footer :: footer"></footer>
