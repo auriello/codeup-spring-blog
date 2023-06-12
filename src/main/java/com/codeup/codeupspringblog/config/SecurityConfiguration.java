@@ -43,15 +43,15 @@ public class SecurityConfiguration {
         http.authorizeHttpRequests((requests) -> requests
                         /* Pages that require authentication
                          * only authenticated users can create and edit ads */
-                        .requestMatchers("/posts/create","/posts", "/posts/*/edit").authenticated()
+                        .requestMatchers("/posts/create", "/posts/*/edit", "/posts/*/update", "/posts/*/delete").authenticated()
                         /* Pages that do not require authentication
                          * anyone can visit the home page, register, login, and view ads */
-                        .requestMatchers("/", "/parks", "/posts/*", "/sign-up", "/login").permitAll()
+                        .requestMatchers("/", "/parks", "/posts/*", "/sign-up", "/login", "/posts").permitAll()
                         // allow loading of static resources
                         .requestMatchers("/css/**", "/js/**", "/img/**").permitAll()
                 )
                 /* Login configuration */
-                .formLogin((login) -> login.loginPage("/login").defaultSuccessUrl("/parks"))
+                .formLogin((login) -> login.loginPage("/login").defaultSuccessUrl("/posts"))
                 /* Logout configuration */
                 .logout((logout) -> logout.logoutSuccessUrl("/login?logout"))
                         .httpBasic(withDefaults());
